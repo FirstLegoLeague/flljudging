@@ -49,7 +49,7 @@ If you have ideas, questions or want to contribute, please head over to the [iss
 
 License
 --------
-This projected is licensed under the terms of the [GNU GPL v2.0 licenses](https://raw.githubusercontent.com/FirstLegoLeague/flljudging/master/LICENSE.txt)
+This projected is licensed under the terms of the [GNU GPL v2.0 licenses](https://raw.githubusercontent.com/FirstLegoLeague/flljudging/master/LICENSE)
 
 Basically, it allows users to legally copy, distribute and modify software. This means you can:
 * Copy it onto your own servers, your client’s servers, your own computer, pretty much anywhere you want. There’s no limit to the number of copies you can make. 
