@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="flljudgingApp">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="scripts/app.js"></script>
+	
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+				<img alt="Brand" height="35px" src="images/FLLtriangleSmall.png">
+				</a>
+				<a class="navbar-brand" href="#">FLL Judging</a>
+				
+			</div>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-pencil-square"></i> Rubrics<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#RubricsPR">Project</a></li>
+						<li><a href="#RubricsRD">Robot Design</a></li>
+						<li><a href="#RubricsCV">Core Values</a></li>
+					</ul>
+					</li>
+				<li><a href="#nominations"><i class="fa fa-check-square"></i> Nominations</a></li>
+				<li><a href="#rankings"><i class="fa fa-sort-amount-asc"></i> Rankings</a></li>
+				<li><a href="#admin"><i class="fa fa-cog"></i> Admin</a></li>
+			</ul>
+			</div>
+		</div>
+		
+	</nav>
+	
+</head>
+<body ng-controller="mainController">
+
+	<div id="main">
+	
+		<!-- this is where content will be injected -->
+		<div ng-view></div>
+	</div>
+  
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-57415990-1');
+		ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

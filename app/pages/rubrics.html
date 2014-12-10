@@ -1,0 +1,53 @@
+<!-- rubric.html -->
+    <div class="jumbotron text-center">
+        <h1><img height="75px"src="/images/{{rubricIcon}}" /> {{rubricCategory}} Rubric</h1>
+		</div>	
+
+		<div class="panel panel-default" ng-controller="Selections">
+		<div class="panel-heading">1) Select your judging form </div>
+		<div class="panel-body">
+				<select class="form-control" ng-model="selectedTeam" ng-options="item.number as item.name for item in teams">
+					<option value="">Select Team</option>
+				</select>
+				<select class="form-control" ng-model="selectJudgingPanel" ng-options="item.panel as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
+					<option value="">Select Judging panel</option>
+				</select>
+		</div>
+		
+   </div>
+
+	<div class="panel panel-default" ng-controller="RubricForm">
+	<!-- Default panel contents -->
+	<div class="panel-heading">{{rubricCategory}} {{selectJudgingPanel}} Rubric for {{selectedTeam}}</div>
+	<div class="panel-body">For each skill area, clearly mark the box that best describes the team's accomplishments. If the team does not demonstrate skill in a particular area, then put an 'X' in the first box for Not Demonstrated (ND). Please provide as many written comments as you can to acknowledge each team’s hard work and to help teams improve. When you have completed the evaluation, please circle the awards for which you would like this team to be considered.</div>
+
+			<table class="table table-striped">
+			<thead>
+				<tr>
+				<th>ND</th>
+				<th>Beginning</th>
+				<th>Developing</th>
+				<th>Accomplished</th>
+				<th>Exemplary</th>		
+				</tr>
+			</thead>
+			<tbody>
+			
+				<tr ng-repeat-start="question in rubricQuestions | filter:{category:rubricCategory}">
+				<td colspan="5">
+				<b>({{question.questionID}}) {{question.QuestionText}}:</b> {{question.QuestionDesc}}
+				</td>
+				</tr>
+				<tr ng-repeat-end>
+						<td><div class="btn-group btn-group-justified" role="group" ><div class="btn-group" role="group"><button type="button" style="margin-bottom:4px;white-space: normal;" class="btn btn-default btn-sm">ND</button></div></div></td>
+						<td><div class="btn-group btn-group-justified" role="group" ><div class="btn-group" role="group"><button type="button" style="margin-bottom:4px;white-space: normal;" class="btn btn-default btn-sm">{{question.AnswerBeginning}}</button></div></div></td>
+						<td><div class="btn-group btn-group-justified" role="group" ><div class="btn-group" role="group"><button type="button" style="margin-bottom:4px;white-space: normal;" class="btn btn-default btn-sm">{{question.AnswerDeveloping}}</button></div></div></td>
+						<td><div class="btn-group btn-group-justified" role="group" ><div class="btn-group" role="group"><button type="button" style="margin-bottom:4px;white-space: normal;" class="btn btn-default btn-sm">{{question.AnswerAccompished}}</button></div></div></td>
+						<td><div class="btn-group btn-group-justified" role="group" ><div class="btn-group" role="group"><button type="button" style="margin-bottom:4px;white-space: normal;" class="btn btn-default btn-sm">{{question.AnswerExemplary}}</button></div></div></td>
+				</tr>
+			
+			</tbody>
+			</table>		
+	</div>		
+ 
+	
