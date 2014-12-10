@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/FirstLegoLeague/flljudging.png?branch=master)](https://travis-ci.org/FirstLegoLeague/flljudging)
+[![Coverage Status](https://coveralls.io/repos/FirstLegoLeague/flljudging/badge.png?branch=master)](https://coveralls.io/r/FirstLegoLeague/flljudging?branch=master)
+[![Dependency Status](https://david-dm.org/FirstLegoLeague/flljudging.png)](https://david-dm.org/FirstLegoLeague/flljudging)
+[![devDependency Status](https://david-dm.org/FirstLegoLeague/flljudging/dev-status.png)](https://david-dm.org/FirstLegoLeague/flljudging#info=devDependencies)
+
 FLL-Judging
 ==========
 
