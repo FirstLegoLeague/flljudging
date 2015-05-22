@@ -87,37 +87,35 @@
 		
     });
 	
-	flljudgingApp.controller('Selections', function ($scope, $http) {
+	flljudgingApp.controller('RubricForm', function ($scope, $http) {
     $scope.selectedTeam = null;
     $scope.teams = [];
 	$scope.selectJudgingPanel = null;
     $scope.judgingpanels = [];
+    $scope.rubricQuestions = [];
 	
-
+	console.log($scope.selectJudgingPanel);
+	console.log($scope.selectedTeam);
+	
 		$http({	
 			method: 'GET',
 			url: '/data/teams.json',
 			data: { applicationId: 3 }
 			}).success(function (result) {
 			$scope.teams = result;
-		});
+			});
 		$http({
 			method: 'GET',
 			url: '/data/judgingpanels.json',
 			data: { applicationId: 3 }
 			}).success(function (result) {
 			$scope.judgingpanels = result;
-		});
-	});	
-	
-	flljudgingApp.controller('RubricForm', function ($scope, $http) {
-    $scope.rubricQuestions = [];
-	
+			});
 		$http({
 			method: 'GET',
 			url: '/data/questions.json',
 			data: { applicationId: 3 }
 			}).success(function (result) {
 			$scope.rubricQuestions = result;
-		});
+			});
 	});

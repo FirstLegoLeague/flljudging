@@ -1,22 +1,23 @@
 <!-- rubric.html -->
+<div ng-controller="RubricForm">
     <div class="jumbotron text-center">
         <h1><img height="75px"src="/images/{{rubricIcon}}" /> {{rubricCategory}} Rubric</h1>
 		</div>	
 
-		<div class="panel panel-default" ng-controller="Selections">
+		<div class="panel panel-default" >
 		<div class="panel-heading">1) Select your judging form </div>
-		<div class="panel-body">
-				<select class="form-control" ng-model="selectedTeam" ng-options="item.number as item.name for item in teams">
-					<option value="">Select Team</option>
-				</select>
-				<select class="form-control" ng-model="selectJudgingPanel" ng-options="item.panel as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
-					<option value="">Select Judging panel</option>
-				</select>
+			<div class="panel-body">
+					<select class="form-control" ng-model="selectedTeam" ng-options="item.number as item.name for item in teams">
+						<option value="">Select Team</option>
+					</select>
+					<select class="form-control" ng-model="selectJudgingPanel" ng-options="item.panel as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
+						<option value="">Select Judging panel</option>
+					</select>
+			</div>
+			
 		</div>
-		
-   </div>
 
-	<div class="panel panel-default" ng-controller="RubricForm">
+	
 	<!-- Default panel contents -->
 	<div class="panel-heading">{{rubricCategory}} {{selectJudgingPanel}} Rubric for {{selectedTeam}}</div>
 	<div class="panel-body">For each skill area, clearly mark the box that best describes the team's accomplishments. If the team does not demonstrate skill in a particular area, then put an 'X' in the first box for Not Demonstrated (ND). Please provide as many written comments as you can to acknowledge each team’s hard work and to help teams improve. When you have completed the evaluation, please circle the awards for which you would like this team to be considered.</div>
@@ -35,7 +36,7 @@
 			
 				<tr ng-repeat-start="question in rubricQuestions | filter:{category:rubricCategory}">
 				<td colspan="5">
-				<b>({{question.questionID}}) {{question.QuestionText}}:</b> {{question.QuestionDesc}}
+				<b>({{question.questionID}}) {{question.questionText}}:</b> {{question.questionDesc}}
 				</td>
 				</tr>
 				<tr ng-repeat-end>
@@ -49,5 +50,5 @@
 			</tbody>
 			</table>		
 	</div>		
- 
+ <div>
 	
