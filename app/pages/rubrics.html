@@ -9,10 +9,10 @@
 		<div class="panel panel-primary" >
 		<div class="panel-heading"><i class="mdi-action-assignment-ind"> </i> Select your judging form </div>
 			<div class="panel-body">
-					<select class="form-control" ng-model="selectedTeam" ng-options="item.number as item.name for item in teams">
+					<select class="form-control" ng-model="selectedTeam" ng-click="ChangeForm()" ng-options="item.number as item.name for item in teams">
 						<option value="">Select Team</option>
 					</select>
-					<select class="form-control" ng-model="selectJudgingPanel" ng-options="item.panel as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
+					<select class="form-control" ng-model="selectJudgingPanel"  ng-click="ChangeForm()" ng-options="item.panel as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
 						<option value="">Select Judging panel</option>
 					</select>
 			</div>
@@ -22,10 +22,10 @@
 	
 	<!-- Default panel contents -->
 	<div class="panel panel-primary" >
-	<div class="panel-heading"><i class="mdi-action-assignment"> </i> {{selectJudgingPanel}} Rubric for team {{selectedTeam}}</div>
-	<div class="panel-body">For each skill area, clearly mark the box that best describes the team's accomplishments. If the team does not demonstrate skill in a particular area, then put an 'X' in the first box for Not Demonstrated (ND). Please provide as many written comments as you can to acknowledge each team’s hard work and to help teams improve. When you have completed the evaluation, please circle the awards for which you would like this team to be considered.</div>
+		<div class="panel-heading"><i class="mdi-action-assignment"> </i> {{selectJudgingPanel}} Rubric for team {{selectedTeam}}</div>
+		<div class="panel-body">For each skill area, clearly mark the box that best describes the team's accomplishments. If the team does not demonstrate skill in a particular area, then put an 'X' in the first box for Not Demonstrated (ND). Please provide as many written comments as you can to acknowledge each team’s hard work and to help teams improve. When you have completed the evaluation, please circle the awards for which you would like this team to be considered.</div>
 
-			<table class="table table-striped">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 				<th>Not demonstrated</th>
@@ -36,45 +36,52 @@
 				</tr>
 			</thead>
 			<tbody>
-			
-				<tr ng-repeat-start="question in rubricQuestions | filter:{category:rubricCategory}" >
+			<tr ng-repeat-start="question in rubricQuestions | filter:{category:rubricCategory}" >
 				<td colspan="5">
-				<p><i class="mdi-image-filter-{{question.questionID}}"></i><strong> {{question.questionText}}:</strong> {{question.questionDesc}}</p>
+					<p><i class="mdi-image-filter-{{question.questionID}}"></i><strong> {{question.questionText}}:</strong> {{question.questionDesc}}</p>
 				</td>
-				</tr>
-				<tr ng-repeat-end>
+			</tr>
+			<tr ng-repeat-end>
+			<!-- ideally the answer options should also be dynamic -->
 				<div class="btn-group btn-group-justified" data-toggle="buttons">
 					<td>
-						<button class="btn btn-material-deep-orange-100" ng-class="selectedquestion?'btn-material-deep-orange-800':'btn-material-deep-orange-100'" ng-click="ChangeAnswer($event,question.questionID,0)" style="white-space: normal; height:100%; width:100%; " name="{{rubricCategory}}-{{question.questionID}}" id="ND" autocomplete="off" >
+						<button class="btn btn-material-deep-orange-100" ng-class="rubric[question.questionID]== 0? 'btn-material-deep-orange-800' : 'btn-material-deep-orange-100'" ng-click="ChangeForm(question.questionID,0)" style="white-space: normal; height:100%; width:100%; " >
 							{{question.AnswerND}}
 						</button>
 					</td>
 					<td> 
-						<button class="btn btn-material-orange-100" ng-class="selectedquestion?'btn-material-orange-800':'btn-material-orange-100'" ng-click="ChangeAnswer($event,question.questionID,1)" style="white-space: normal; height:100%; width:100%; " name="{{rubricCategory}}-{{question.questionID}}" id="Beginning" autocomplete="off" >
+						<button class="btn btn-material-orange-100" ng-class="rubric[question.questionID]== 1?'btn-material-orange-800':'btn-material-orange-100'" ng-click="ChangeForm(question.questionID,1)" style="white-space: normal; height:100%; width:100%; " >
 							{{question.AnswerBeginning}}
 						</button>
 					</td>
 					<td> 
-						<button class="btn btn-material-yellow-100" ng-class="selectedquestion?'btn-material-yellow-800':'btn-material-yellow-100'" ng-click="ChangeAnswer($event,question.questionID,2)" style="white-space: normal; height:100%; width:100%; " name="{{rubricCategory}}-{{question.questionID}}" id="Developing" autocomplete="off" >
+						<button class="btn btn-material-yellow-100" ng-class="rubric[question.questionID]== 2?'btn-material-yellow-800':'btn-material-yellow-100'" ng-click="ChangeForm(question.questionID,2)" style="white-space: normal; height:100%; width:100%; ">
 							{{question.AnswerDeveloping}}
 						</button>
 					</td>
 					<td> 
-						<button class="btn btn-material-lime-100" ng-class="selectedquestion?'btn-material-lime-800':'btn-material-lime-100'" ng-click="ChangeAnswer($event,question.questionID,3)" style="white-space: normal; height:100%; width:100%; " name="{{rubricCategory}}-{{question.questionID}}" id="Accomplished" autocomplete="off" >
+						<button class="btn btn-material-lime-100" ng-class="rubric[question.questionID]== 3?'btn-material-lime-800':'btn-material-lime-100'" ng-click="ChangeForm(question.questionID,3)" style="white-space: normal; height:100%; width:100%; ">
 							{{question.AnswerAccomplished}}
-					 	</button>
+						</button>
 					</td>
 					<td>
-						<button class="btn btn-material-light-green-100" ng-class="selectedquestion?'btn-material-light-green-800':'btn-material-light-green-100'" ng-click="ChangeAnswer($event,question.questionID,4)" style="white-space: normal; height:100%; width:100%; " name="{{rubricCategory}}-{{question.questionID}}" id="ND" autocomplete="off" >
+						<button class="btn btn-material-light-green-100" ng-class="rubric[question.questionID]== 4?'btn-material-light-green-800':'btn-material-light-green-100'" ng-click="ChangeForm(question.questionID,4)" style="white-space: normal; height:100%; width:100%; ">
 							{{question.AnswerExemplary}}
 						</button>
 					<td>
 				</div>		
-				</tr>
-			
+			</tr>
 			</tbody>
-			</table>		
-		</div>
-	</div>		
- <div>
+		</table>	
+	</div>
+				
+	
+	<div class="panel panel-primary" >
+		<div class="panel-heading"><i class="mdi-action-assignment"> </i> Submit {{selectJudgingPanel}} rubric for team {{selectedTeam}}</div>
+		<div class="panel-body">Please enssure you have selected the correct <strong>team</strong>, <strong>panel</strong>, and <strong> rubric</strong> before submitting the form.</div>
+		<!-- TODO: add confirmation dialog -->
+		<button class="btn btn-danger" ng-click="ResetForm()" >Reset answers</button>
+	</div>
+	
+</div>
 	

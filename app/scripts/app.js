@@ -91,16 +91,34 @@
 	
 	
 	flljudgingApp.controller('RubricForm', function ($scope, $http) {
-	
-		$scope.answers = {};	
+		//create the rubric object
+		$scope.rubric = {};	
+				
+		$scope.ChangeForm = function(questionSel,answerselect) {
 		
-		$scope.ChangeAnswer = function($event,questionSel,answerselect) {
-			//store answer
-
-			$scope.answers[questionSel] = answerselect;
-			console.log($scope.answers);
-	
-		}	
+			//store meta information about rubric
+			$scope.rubric["Team"] =  $scope.selectedTeam;
+			$scope.rubric["Panel"] = $scope.selectJudgingPanel;
+			$scope.rubric["Category"] = $scope.rubricCategory;
+			//store answer, creating a property for the question ID and the answerID, only if passed
+			if (questionSel == null){
+				
+			}else{
+				$scope.rubric[questionSel] = answerselect;
+			}
+			
+			//debugging 
+			console.log("Current rubric:");
+			console.log($scope.rubric);
+			console.log("---------------");
+		}
+		$scope.ResetForm = function(){
+			
+			
+			$scope.rubric = {};	
+			console.log($scope.rubric);
+			console.log("Form Reset!");
+		}
 	    
 	$scope.selectedTeam = null;
     $scope.teams = [];
@@ -108,11 +126,8 @@
     $scope.judgingpanels = [];
     $scope.rubricQuestions = [];
 	
-	console.log($scope.selectJudgingPanel);
-	console.log($scope.selectedTeam);
-	
 		$http({	
-			method: 'GET',
+			method: 'GET',		
 			url: '/data/teams.json',
 			data: { applicationId: 3 }
 			}).success(function (result) {
@@ -132,4 +147,8 @@
 			}).success(function (result) {
 			$scope.rubricQuestions = result;
 			});
+			
+		console.log("Data fetch completed!");
 	});
+	
+	
