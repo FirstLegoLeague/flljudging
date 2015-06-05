@@ -1,6 +1,8 @@
 'use strict';
 // script.js
 
+	
+
     // create the module and name it scotchApp
         // also include ngRoute for all our routing needs
     var flljudgingApp = angular.module('flljudgingApp', ['ngRoute']);
@@ -87,8 +89,20 @@
 		
     });
 	
+	
 	flljudgingApp.controller('RubricForm', function ($scope, $http) {
-    $scope.selectedTeam = null;
+	
+		$scope.answers = {};	
+		
+		$scope.ChangeAnswer = function($event,questionSel,answerselect) {
+			//store answer
+
+			$scope.answers[questionSel] = answerselect;
+			console.log($scope.answers);
+	
+		}	
+	    
+	$scope.selectedTeam = null;
     $scope.teams = [];
 	$scope.selectJudgingPanel = null;
     $scope.judgingpanels = [];
