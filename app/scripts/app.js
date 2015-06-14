@@ -2,7 +2,9 @@
 // script.js
 
 	
-
+	
+	
+	
     // create the module and name it scotchApp
         // also include ngRoute for all our routing needs
     var flljudgingApp = angular.module('flljudgingApp', ['ngRoute']);

@@ -1,6 +1,8 @@
 <!-- rubric.html -->
     <div class="jumbotron text-center">
-        <h1>Rubric Page</h1>
-
+        <h1>Nominations Page</h1>
+			<ul ui-sortable ng-model="items">
+				<li ng-repeat="item in items">{{ item }}</li>
+			</ul>
         <p>{{ message }}</p>
     </div>
