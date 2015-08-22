@@ -14,7 +14,7 @@
 						<option value="">Select Team</option>
 					</select>
 					
-					<select class="form-control" ng-model="selectJudgingPanel"  ng-click="ChangeForm()" ng-options="item as item.panel for item in judgingpanels | filter:{category:rubricCategory }" required>
+					<select class="form-control" ng-model="selectJudgingPanel"  ng-click="ChangeForm()" ng-options="item as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
 						<option value="">Select Judging panel</option>
 					</select>
 			</div>

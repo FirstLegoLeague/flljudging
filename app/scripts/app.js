@@ -103,7 +103,8 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 		url: '/fs/teams.json'
 	}).success(function (result) {
 		$scope.teams = result;
-		console.log("Teams successfully fetched!");
+		var numTeams = Object.keys($scope.teams).length;
+		console.log(numTeams + " teams successfully fetched!");
 	});
 	
 	$http({
@@ -111,7 +112,8 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 		url: '/fs/judgingpanels.json'
 	}).success(function (result) {
 		$scope.judgingpanels = result;
-		console.log("Judging panels successfully fetched!");
+		var numPanels = Object.keys($scope.judgingpanels).length;
+		console.log(numPanels + "unfiltered judging panels successfully fetched!");
 	});
 	
 	$http({
@@ -119,7 +121,10 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 		url: '/fs/questions.json'
 	}).success(function (result) {
 		$scope.rubricQuestions = result;
-		console.log("Questions successfully loaded!");
+		var numQuestions = Object.keys($scope.rubricQuestions).length;
+		console.log(numQuestions + " questions successfully loaded!");
+		
+		
 	});
 	
 	$scope.ChangeForm = function(questionSel,answerselect) {
@@ -129,15 +134,12 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 		$scope.rubric["Category"] = $scope.rubricCategory;
 		//store answer, creating a property for the question ID and the answerID, only if passed
 		if (questionSel == null){
-			
 		}else{
 			$scope.rubric[questionSel] = answerselect;
 		}
-
 	}
 	
 	$scope.ResetForm = function(){
-		
 		$scope.rubric = {};	
 		console.log($scope.rubric);
 		console.log("Form Reset!");
@@ -154,13 +156,27 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 		return false;
 	}
 	
+	function areAllquestionsAnswered() {
+		var k = $scope.rubricQuestions.map(function(q) {
+			return q.questionID;
+		});
+			//Object.keys($scope.rubricQuestions)
+		console.log($scope.rubric,k);
+		var allQuestionsAnswered =  k.every(function(answer){
+			return answer in $scope.rubric;
+		});
+		console.log("QuestionsAnswered? " +  allQuestionsAnswered);
+		return allQuestionsAnswered;
+		
+	}
+	
 	// Combine validation checks and return to form
 	$scope.isSubmitEnabled = function() {
 		return isTeamSelected() &&
-			isPanelSelected();
-			//next
-
+			isPanelSelected() &&
+			areAllquestionsAnswered();
 	}
+	
 	$scope.SubmitForm = function (){
 		// debugging 
 		console.log("-- Current rubric data --");
