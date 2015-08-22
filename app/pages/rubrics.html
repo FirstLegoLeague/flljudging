@@ -1,5 +1,6 @@
 <!-- rubric.html -->
 <div ng-controller="RubricForm">
+ <form name="rubric-form">
     <div class="panel panel-default text-center">
 		 <div class="panel-body">
 			<h2><img height="50px"src="/images/{{rubricIcon}}" /> {{rubricCategory}} Rubric</h2>
@@ -9,10 +10,11 @@
 		<div class="panel panel-primary" >
 		<div class="panel-heading"><i class="mdi-action-assignment-ind"> </i> Select your judging form </div>
 			<div class="panel-body">
-					<select class="form-control" ng-model="selectedTeam" ng-click="ChangeForm()" ng-options="item.number as item.name for item in teams">
+					<select class="form-control" ng-model="selectedTeam" ng-click="ChangeForm()" ng-options="item as item.name for item in teams">
 						<option value="">Select Team</option>
 					</select>
-					<select class="form-control" ng-model="selectJudgingPanel"  ng-click="ChangeForm()" ng-options="item.panel as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
+					
+					<select class="form-control" ng-model="selectJudgingPanel"  ng-click="ChangeForm()" ng-options="item as item.panel for item in judgingpanels | filter:{category:rubricCategory }" required>
 						<option value="">Select Judging panel</option>
 					</select>
 			</div>
@@ -22,7 +24,7 @@
 	
 	<!-- Default panel contents -->
 	<div class="panel panel-primary" >
-		<div class="panel-heading"><i class="mdi-action-assignment"> </i> {{selectJudgingPanel}} Rubric for team {{selectedTeam}}</div>
+		<div class="panel-heading"><i class="mdi-action-assignment"> </i> {{selectJudgingPanel.panel}} Rubric for ({{selectedTeam.number}}) {{selectedTeam.name}}</div>
 		<div class="panel-body">For each skill area, clearly mark the box that best describes the team's accomplishments. If the team does not demonstrate skill in a particular area, then put an 'X' in the first box for Not Demonstrated (ND). Please provide as many written comments as you can to acknowledge each team’s hard work and to help teams improve. When you have completed the evaluation, please circle the awards for which you would like this team to be considered.</div>
 
 		<table class="table table-striped">
@@ -75,13 +77,13 @@
 		</table>	
 	</div>
 				
-	
 	<div class="panel panel-primary" >
-		<div class="panel-heading"><i class="mdi-action-assignment-turned-in"> </i> Submit {{selectJudgingPanel}} rubric for team {{selectedTeam}}</div>
+		<div class="panel-heading"><i class="mdi-action-assignment-turned-in"> </i> Submit {{selectJudgingPanel.panel}} rubric for team ({{selectedTeam.number}}) {{selectedTeam.name}}</div>
 		<div class="panel-body">Please enssure you have selected the correct <strong>team</strong>, <strong>panel</strong>, and <strong> rubric</strong> before submitting the form.</div>
 		<!-- TODO: add confirmation dialog -->
 		<button class="btn btn-danger" ng-click="ResetForm()" >Reset answers</button>
+		<button class="btn btn-success" ng-disabled="!isSubmitEnabled()" ng-click="SubmitForm()">Submit rubric</button>
 	</div>
-	
+	</form> 
 </div>
 	
