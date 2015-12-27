@@ -1,7 +1,6 @@
 'use strict';
 // script.js
 
-// create the module and name it scotchApp
 	// also include ngRoute for all our routing needs
 var flljudgingApp = angular.module('flljudgingApp', ['ngRoute']);
 
@@ -88,7 +87,7 @@ flljudgingApp.controller('adminController', function($scope) {
 });
 
 
-flljudgingApp.controller('RubricForm', function ($scope, $http) {
+flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 	
 	//create the rubric object
 	$scope.rubric = {};	
@@ -141,10 +140,10 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 	
 	$scope.ResetForm = function(){
 		$scope.rubric = {};	
-		console.log($scope.rubric);
 		console.log("Form Reset!");
 	}
 	
+
 	/** Form validation */
 	function isTeamSelected() { 
 		if ($scope.selectedTeam && $scope.selectedTeam.number) return true;
@@ -161,11 +160,9 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 			return q.questionID;
 		});
 			//Object.keys($scope.rubricQuestions)
-		console.log($scope.rubric,k);
 		var allQuestionsAnswered =  k.every(function(answer){
 			return answer in $scope.rubric;
 		});
-		console.log("QuestionsAnswered? " +  allQuestionsAnswered);
 		return allQuestionsAnswered;
 		
 	}
@@ -178,17 +175,22 @@ flljudgingApp.controller('RubricForm', function ($scope, $http) {
 	}
 	
 	$scope.SubmitForm = function (){
+		var filename = "rubric_" +$scope.rubric["Category"] + "_" + $scope.rubric.Team.number + "_" + Date.now();
 		// debugging 
 		console.log("-- Current rubric data --");
 		console.log($scope.rubric);
 		$http({
 		method: 'POST',
-		url: '/fs/completed_rubrics/test.json',
+		url: '/fs/completed_rubrics/' +filename+ '.json',
 		headers: { 'Content-Type': 'application/json; charset=UTF-8' },
 		data: $scope.rubric
 		}).success(function (){
 			console.log("Saved!");
 			console.log("--------");
+			
+			$window.alert('Thank you for submitting the ' + $scope.rubric["Category"]  + ' rubrics for team (' + $scope.rubric.Team.number+ ') ' +  $scope.rubric.Team.name + '.');
+			$scope.ResetForm();
+			
 		}).error(function (){
 			console.log("Failed!");
 			console.log("--------");
