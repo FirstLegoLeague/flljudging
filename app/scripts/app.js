@@ -2,7 +2,7 @@
 // script.js
 
 	// also include ngRoute for all our routing needs
-var flljudgingApp = angular.module('flljudgingApp', ['ngRoute']);
+var flljudgingApp = angular.module('flljudgingApp', ['ngRoute','ui.sortable']);
 
 
 // configure our routes
@@ -32,9 +32,17 @@ flljudgingApp.config(function($routeProvider) {
 		})
 		
 		// route for the nominations page
-		.when('/nominations', {
+		.when('/NominationsPR', {
 			templateUrl : 'pages/nominations.html',
-			controller  : 'nominationsController'
+			controller  : 'nominationsPRController'
+		})
+		.when('/NominationsRD', {
+			templateUrl : 'pages/nominations.html',
+			controller  : 'nominationsRDController'
+		})
+		.when('/NominationsCV', {
+			templateUrl : 'pages/nominations.html',
+			controller  : 'nominationsCVController'
 		})
 		// route for the rankings page
 		.when('/rankings', {
@@ -73,10 +81,25 @@ flljudgingApp.controller('rubricsCVController', function($scope) {
 	$scope.rubricIcon = 'CoreValues.png';
 });
 
-flljudgingApp.controller('nominationsController', function($scope) {
-	$scope.message = 'The nominations form will go here.';
-	
+flljudgingApp.controller('nominationsPRController', function($scope) {
+	$scope.message = 'The project nominations will go here.';
+	$scope.rubricCategory = 'Project';
+	$scope.rubricIcon = 'Project.png';
 });
+
+flljudgingApp.controller('nominationsRDController', function($scope) {
+	$scope.message = 'The project nominations will go here.';
+	$scope.rubricCategory = 'Robot Design';
+	$scope.rubricIcon = 'RobotDesign.png';
+});
+
+flljudgingApp.controller('nominationsCVController', function($scope) {
+	$scope.message = 'The project nominations will go here.';
+	$scope.rubricCategory = 'Core Values';
+	$scope.rubricIcon = 'CoreValues.png';
+});
+
+
 flljudgingApp.controller('rankingsController', function($scope) {
 	$scope.message = 'The rankings form will go here.';
 	
@@ -198,3 +221,28 @@ flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 	}
 });
 
+flljudgingApp.controller('NominatoinsForm', function ($scope, $http, $window) {
+
+	$scope.selectJudgingPanel = null;
+	$scope.judgingpanels = [];
+	$scope.teams = [];
+	
+	$http({
+		method: 'GET',
+		url: '/fs/judgingpanels.json'
+	}).success(function (result) {
+		$scope.judgingpanels = result;
+		var numPanels = Object.keys($scope.judgingpanels).length;
+		console.log(numPanels + "unfiltered judging panels successfully fetched!");
+	});
+	$http({	
+		method: 'GET',		
+		url: '/fs/teams.json'
+	}).success(function (result) {
+		$scope.teams = result;
+		var numTeams = Object.keys($scope.teams).length;
+		console.log(numTeams + " teams successfully fetched!");
+	});
+	
+	
+});

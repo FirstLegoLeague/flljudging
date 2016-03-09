@@ -6,7 +6,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
+	
     <script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 	<!---<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
     <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
@@ -17,12 +21,12 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+	<script src="bower_components/angular-ui-sortable/sortable.js"></script>
     <script src="scripts/app.js"></script>
 	
 	
 	 <!-- Twitter Bootstrap TODO: Replace with local file-->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-	
 	 <!-- Material Design for Bootstrap -->
     <link href="bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
     <link href="bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
@@ -54,8 +58,13 @@
 						<li><a href="#RubricsRD">Robot Design</a></li>
 						<li><a href="#RubricsCV">Core Values</a></li>
 					</ul>
-					</li>
-				<li><a href="#nominations"><i class="fa fa-check-square"></i> Nominations</a></li>
+				</li>
+				<li class="dropdown"><a data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil-square"></i> Nominations<b class="caret"></b></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#NominationsPR">Project</a></li>
+						<li><a href="#NominationsRD">Robot Design</a></li>
+						<li><a href="#NominationsCV">Core Values</a></li>
+					</ul>
 				<li><a href="#rankings"><i class="fa fa-sort-amount-asc"></i> Rankings</a></li>
 				<li><a href="#admin"><i class="fa fa-cog"></i> Admin</a></li>
 			</ul>
