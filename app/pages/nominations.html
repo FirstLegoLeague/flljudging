@@ -1,6 +1,6 @@
 <!-- nominations.html -->
-<div ng-controller="NominatoinsForm">
- <form name="nominations-form">
+<div ng-controller="NominationsForm">
+<form name="nominations-form">
     <div class="panel panel-default text-center">
 		 <div class="panel-body">
 			<h2><img height="50px"src="/images/{{rubricIcon}}" /> {{rubricCategory}} Nominations</h2>
@@ -16,23 +16,83 @@
 				</div>
 			</select>
 		</div>
-	
+	</div>
+	<div class="panel panel-primary" >
 		<div class="panel-heading"><i class="mdi-av-shuffle"> </i> Sort your teams </div>	
 		<br />
-		<div ui-sortable ng-model="teams" class="list-group">
-			<div ng-repeat="item in teams" class="panel panel-default">
-				 <div class="panel-heading">
+		
+
+		
+		
+		<div class="section row connectedItemsExample">
 			
-					<h4 class="panel-title"><i class="mdi-navigation-unfold-more"></i> {{item.name}} ({{item.number}})</h4>
-				</div>
-				<div class="row-content">
-					<p class="list-group-item-text">{{item.affliation}}</p>
+		
+		
+			
+			<div class="col col-sm-4">
+				<div class="panel panel-default">
+				<div class="panel-heading"><i class="mdi-editor-format-list-bulleted"></i> Team list</div>
+					<div class="panel-body">
+						<div ui-sortable="sortableOptions" ng-model="teams" class="list-group">
+							<div ng-repeat="item in teams" class="list-group-item">
+								<div class="row-action-primary">
+									<i class="mdi-hardware-keyboard-tab"></i>
+								</div>
+								<div class="row-content">
+									<div class="action-secondary"><i class="mdi-action-info-outline"></i></div>
+									<h4 class="list-group-item-heading"> {{item.name}} ({{item.number}})</h4>
+									<p class="list-group-item-text">{{item.affliation}}</p>
+								</div>
+								<div class="list-group-separator"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="list-group-separator"></div>
-		</div>
-		
-	</div>
 			
+			
+			<div class="col col-sm-4">
+			<div ng-repeat="item in awards| filter:{category:rubricCategory }" ng-model="awards" class="panel panel-default">
+	
+				<div class="panel-heading">
+					<i class="mdi-editor-format-list-bulleted"></i>{{item.award}}</div>
+						<div class="panel-body">				
+							<div ui-sortable="sortableOptions" ng-model="teamsSorted" class="list-group">
+								<div ng-repeat="item in teamsSorted" class="list-group-item">
+									<div class="row-content" >
+										<h4 class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{item.name}} ({{item.number}})</h4>
+										<p class="list-group-item-text">{{item.affliation}}</p>
+									</div>
+									<div class="list-group-separator"></div>
+								</div>
+							</div>
+						</div>
+				
+			</div>
+			</div>
+			
+			
+			<div class="col col-sm-4">
+				<div class="panel panel-default">
+				<div class="panel-heading"><i class="mdi-editor-format-list-numbered"></i> Ranking list</div>
+					<div class="panel-body">
+					<div ui-sortable="sortableOptions" ng-model="teamsSorted" class="list-group">
+							<div ng-repeat="item in teamsSorted" class="list-group-item">
+								
+									<h4 ng-class="$index< 3?'bg-success':''" class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{item.name}} ({{item.number}})</h4>
+									<p class="list-group-item-text">{{item.affliation}}</p>
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		
+			
+		</div>
+	</div>
 </form>
 </div>
+

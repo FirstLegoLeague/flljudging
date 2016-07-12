@@ -47,27 +47,27 @@
 			<!-- ideally the answer options should also be dynamic -->
 				<div class="btn-group btn-group-justified" data-toggle="buttons">
 					<td>
-						<button class="btn btn-material-deep-orange-100" ng-class="rubric[question.questionID]== 0? 'btn-material-deep-orange-800' : 'btn-material-deep-orange-100'" ng-click="ChangeForm(question.questionID,0)" style="white-space: normal; height:100%; width:100%; " >
+						<button class="btn btn-block btn-level0" ng-class="rubric[question.questionID]== 0?'btn btn-level0-select active': 'btn btn-level0'" ng-click="ChangeForm(question.questionID,0)" style="white-space: normal; height:100%; width:100%; " >
 							{{question.AnswerND}}
 						</button>
 					</td>
 					<td> 
-						<button class="btn btn-material-orange-100" ng-class="rubric[question.questionID]== 1?'btn-material-orange-800':'btn-material-orange-100'" ng-click="ChangeForm(question.questionID,1)" style="white-space: normal; height:100%; width:100%; " >
+						<button class="btn btn-block btn-level1" ng-class="rubric[question.questionID]== 1?'btn btn-level1-select active':'btn btn-level1'" ng-click="ChangeForm(question.questionID,1)" style="white-space: normal; height:100%; width:100%; " >
 							{{question.AnswerBeginning}}
 						</button>
 					</td>
 					<td> 
-						<button class="btn btn-material-yellow-100" ng-class="rubric[question.questionID]== 2?'btn-material-yellow-800':'btn-material-yellow-100'" ng-click="ChangeForm(question.questionID,2)" style="white-space: normal; height:100%; width:100%; ">
+						<button class="btn btn-block btn-level2" ng-class="rubric[question.questionID]== 2?'btn btn-level2-select active':'btn btn-level2'" ng-click="ChangeForm(question.questionID,2)" style="white-space: normal; height:100%; width:100%; ">
 							{{question.AnswerDeveloping}}
 						</button>
 					</td>
 					<td> 
-						<button class="btn btn-material-lime-100" ng-class="rubric[question.questionID]== 3?'btn-material-lime-800':'btn-material-lime-100'" ng-click="ChangeForm(question.questionID,3)" style="white-space: normal; height:100%; width:100%; ">
+						<button class="btn btn-block btn-level3" ng-class="rubric[question.questionID]== 3?'btn btn-level3-select active':'btn btn-level3'" ng-click="ChangeForm(question.questionID,3)" style="white-space: normal; height:100%; width:100%; ">
 							{{question.AnswerAccomplished}}
 						</button>
 					</td>
 					<td>
-						<button class="btn btn-material-light-green-100" ng-class="rubric[question.questionID]== 4?'btn-material-light-green-800':'btn-material-light-green-100'" ng-click="ChangeForm(question.questionID,4)" style="white-space: normal; height:100%; width:100%; ">
+						<button class="btn btn-block btn-level4" ng-class="rubric[question.questionID]== 4?'btn btn-level4-select active':'btn btn-level4'" ng-click="ChangeForm(question.questionID,4)" style="white-space: normal; height:100%; width:100%; ">
 							{{question.AnswerExemplary}}
 						</button>
 					<td>

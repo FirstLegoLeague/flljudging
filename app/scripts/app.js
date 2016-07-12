@@ -221,11 +221,37 @@ flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 	}
 });
 
-flljudgingApp.controller('NominatoinsForm', function ($scope, $http, $window) {
 
+flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
+
+	$scope.awards = [];
+	
 	$scope.selectJudgingPanel = null;
 	$scope.judgingpanels = [];
 	$scope.teams = [];
+	$scope.teamsSorted = ['1'];
+	$scope.sortableOptions = {
+		connectWith: '.connectedItemsExample .list-group',
+		update: function(event, ui) {
+			
+			if ($scope.teamsSorted == null){
+				$scope.teamsSorted = ['1'];
+			} else {
+
+			} 
+			console.log($scope.teamsSorted);
+		}
+	};
+	
+
+	$http({
+		method: 'GET',
+		url: '/fs/awards.json'
+	}).success(function (result) {
+		$scope.awards = result;
+		var numAwards = Object.keys($scope.awards).length;
+		console.log(numAwards + " unfiltered awards successfully fetched!");
+	});
 	
 	$http({
 		method: 'GET',
@@ -233,7 +259,7 @@ flljudgingApp.controller('NominatoinsForm', function ($scope, $http, $window) {
 	}).success(function (result) {
 		$scope.judgingpanels = result;
 		var numPanels = Object.keys($scope.judgingpanels).length;
-		console.log(numPanels + "unfiltered judging panels successfully fetched!");
+		console.log(numPanels + " unfiltered judging panels successfully fetched!");
 	});
 	$http({	
 		method: 'GET',		
