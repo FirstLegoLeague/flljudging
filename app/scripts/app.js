@@ -182,14 +182,14 @@ flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 		var k = $scope.rubricQuestions.map(function(q) {
 			return q.questionID;
 		});
-			//Object.keys($scope.rubricQuestions)
+		//Object.keys($scope.rubricQuestions)
 		var allQuestionsAnswered =  k.every(function(answer){
 			return answer in $scope.rubric;
 		});
 		return allQuestionsAnswered;
 		
 	}
-	
+
 	// Combine validation checks and return to form
 	$scope.isSubmitEnabled = function() {
 		return isTeamSelected() &&
@@ -221,7 +221,6 @@ flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 	}
 });
 
-
 flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 
 	$scope.awards = [];
@@ -229,12 +228,11 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 	$scope.selectJudgingPanel = null;
 	$scope.judgingpanels = [];
 	$scope.teams = [];
-        $scope.teamsAll = [];
+	$scope.teamsAll = [];
 	$scope.teamsSorted = [];
 	$scope.sortableOptions = {
 		connectWith: '.connectedItemsExample .list-group',
 		update: function(event, ui) {
-			
 			if ($scope.teamsSorted == null){
 //				$scope.teamsSorted = ['1'];
 			} else {
@@ -242,9 +240,9 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 			} 
 			console.log($scope.teamsSorted);
 		},
-                stop: function(event, ui){
-                    $scope.teams = $scope.teamsAll.slice();
-                }
+		stop: function(event, ui){
+			$scope.teams = $scope.teamsAll.slice();
+		}
 	};
 	
 
@@ -253,9 +251,9 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		url: '/fs/awards.json'
 	}).success(function (result) {
 		$scope.awards = result;
-                $scope.awards.forEach(function(award){
-                    award.teamsSorted = [];
-                });
+		$scope.awards.forEach(function(award) {
+			award.teamsSorted = [];
+		});
 		var numAwards = $scope.awards.length;
 		console.log(numAwards + " unfiltered awards successfully fetched!");
 	});
@@ -273,10 +271,38 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		url: '/fs/teams.json'
 	}).success(function (result) {
 		$scope.teams = result;
-                $scope.teamsAll = result.slice();
+		$scope.teamsAll = result.slice();
 		var numTeams = Object.keys($scope.teams).length;
 		console.log(numTeams + " teams successfully fetched!");
 	});
 	
-	
+	$scope.isTeamRanked = function(team) {
+		var result = false;
+		this.teamsSorted.forEach(function(sortedTeam) {
+			if (sortedTeam.number == team.number) {
+				result = true;
+			}
+		});
+		return result;
+	};
+	$scope.areAllRanked = function() {
+		return this.teamsSorted.length >= this.teams.length;
+	};
+	$scope.isPanelSelected = function() { 
+		return this.selectJudgingPanel && this.selectJudgingPanel.panel;
+	}
+	$scope.ResetForm = function(){
+		this.teamsSorted = [];
+		this.awards.forEach(function(award) {
+			award.teamsSorted = [];
+		});
+		console.log("Form Reset!");
+	}
+	$scope.isSubmitEnabled = function() {
+		return this.isPanelSelected() && this.areAllRanked();
+	};
+	$scope.SubmitForm = function (){
+		// TODO implement function
+		alert("TODO");
+	}
 });

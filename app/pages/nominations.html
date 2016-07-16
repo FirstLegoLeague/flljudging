@@ -7,7 +7,7 @@
 		 </div>
 	</div>	
 
-	<div class="panel panel-primary" >
+	<div class="panel panel-primary">
 		<div class="panel-heading"><i class="mdi-action-assignment-ind"> </i> Select your judging panel </div>
 		<div class="panel-body">
 			<select class="form-control" ng-model="selectJudgingPanel"  ng-click="ChangeForm()" ng-options="item as item.panel for item in judgingpanels | filter:{category:rubricCategory }">
@@ -17,7 +17,7 @@
 			</select>
 		</div>
 	</div>
-	<div class="panel panel-primary" >
+	<div class="panel panel-primary">
 		<div class="panel-heading"><i class="mdi-av-shuffle"> </i> Sort your teams </div>	
 		<br />
 		
@@ -38,7 +38,7 @@
 								<div class="row-action-primary">
 									<i class="mdi-hardware-keyboard-tab"></i>
 								</div>
-								<div class="row-content">
+								<div class="row-content" ng-class="{'TeamRanked':isTeamRanked(item)}"> TODO Class Veranderen
 									<div class="action-secondary"><i class="mdi-action-info-outline"></i></div>
 									<h4 class="list-group-item-heading"> {{item.name}} ({{item.number}})</h4>
 									<p class="list-group-item-text">{{item.affiliation}}</p>
@@ -82,7 +82,7 @@
                                                         <div ng-repeat="item in teamsSorted" class="list-group-item">
 								
 									<h4 ng-class="$index< 3?'bg-success':''" class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{item.name}} ({{item.number}})</h4>
-									<p class="list-group-item-text">{{item.affliation}}</p>
+									<p class="list-group-item-text">{{item.affiliation}}</p>
 								
 								
 							</div>
@@ -94,6 +94,13 @@
 		
 			
 		</div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading">Submit nominations for panel {{selectJudgingPanel.panel}}.</div>
+		<div class="panel-body">Please ensure you have selected the correct <strong>panel</strong> before submitting the form.</div>
+		<!-- TODO: add confirmation dialog -->
+		<button class="btn btn-danger" ng-click="ResetForm()">Reset rankings</button>
+		<button class="btn btn-success" ng-disabled="!isSubmitEnabled()" ng-click="SubmitForm()">Submit rankings</button>
 	</div>
 </form>
 </div>
