@@ -33,7 +33,7 @@
 				<div class="panel panel-default">
 				<div class="panel-heading"><i class="mdi-editor-format-list-bulleted"></i> Team list</div>
 					<div class="panel-body">
-						<div ui-sortable="sortableOptions" ng-model="teams" class="list-group">
+						<div ui-sortable="sortableOptions" ng-model="teams" class="list-group teamlist">
 							<div ng-repeat="item in teams" class="list-group-item">
 								<div class="row-action-primary">
 									<i class="mdi-hardware-keyboard-tab"></i>
@@ -99,6 +99,7 @@
 		<div class="panel-heading">Submit nominations for panel {{selectJudgingPanel.panel}}.</div>
 		<div class="panel-body">Please ensure you have selected the correct <strong>panel</strong> before submitting the form.</div>
 		<!-- TODO: add confirmation dialog -->
+		<button class="btn btn-danger" ng-click="TestForm()">Test data</button>
 		<button class="btn btn-danger" ng-click="ResetForm()">Reset rankings</button>
 		<button class="btn btn-success" ng-disabled="!isSubmitEnabled()" ng-click="SubmitForm()">Submit rankings</button>
 	</div>

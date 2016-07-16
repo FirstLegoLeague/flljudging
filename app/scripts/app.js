@@ -231,6 +231,8 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 	$scope.teamsAll = [];
 	$scope.teamsSorted = [];
 	$scope.sortableOptions = {
+		// see: https://github.com/angular-ui/ui-sortable/
+		// and http://angular-ui.github.io/ui-sortable/
 		connectWith: '.connectedItemsExample .list-group',
 		update: function(event, ui) {
 			if ($scope.teamsSorted == null){
@@ -240,8 +242,18 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 			} 
 			console.log($scope.teamsSorted);
 		},
-		stop: function(event, ui){
-			$scope.teams = $scope.teamsAll.slice();
+		stop: function(event, ui) {
+			console.log(event.target);
+			//if ($(event.target).hasClass('teamlist')) {
+			if ($(ui.item.sortable.droptarget[0]).hasClass('teamlist')) {
+				// create spare copy of teamlist.
+				$scope.teamsAll = $scope.teams.slice();
+			}
+			else {
+				// clone teamlist from spare copy.
+				$scope.teams = $scope.teamsAll.slice();
+			}
+			
 		}
 	};
 	
@@ -291,6 +303,13 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 	$scope.isPanelSelected = function() { 
 		return this.selectJudgingPanel && this.selectJudgingPanel.panel;
 	}
+	$scope.TestForm = function(){
+		this.teamsSorted = this.teams.slice();
+		this.awards.forEach(function(award) {
+			award.teamsSorted = [];
+		});
+		console.log("Form Shuffled!");
+	}
 	$scope.ResetForm = function(){
 		this.teamsSorted = [];
 		this.awards.forEach(function(award) {
@@ -302,7 +321,26 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		return this.isPanelSelected() && this.areAllRanked();
 	};
 	$scope.SubmitForm = function (){
-		// TODO implement function
-		alert("TODO");
+		var filename = "nomination_" + $scope.rubricCategory + "_" + $scope.selectJudgingPanel.panel + "_" + Date.now();
+		$http({
+			method: 'POST',
+			url: '/fs/completed_nominations/' + filename + '.json',
+			headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+			data: { 
+				panel: $scope.selectJudgingPanel.panel,
+				ranking: $scope.teamsSorted,
+				awards: $scope.awards.filter(function(award) {
+					return award.category === $scope.rubricCategory;
+				})
+			}
+		}).success(function (){
+			console.log("Saved!");
+			console.log("--------");
+			$window.alert('Thank you for submitting the ' + $scope.selectJudgingPanel.panel + ' panel nominations.');
+			$scope.ResetForm();
+		}).error(function (){
+			console.log("Failed!");
+			console.log("--------");
+		});	
 	}
 });
