@@ -229,18 +229,22 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 	$scope.selectJudgingPanel = null;
 	$scope.judgingpanels = [];
 	$scope.teams = [];
-	$scope.teamsSorted = ['1'];
+        $scope.teamsAll = [];
+	$scope.teamsSorted = [];
 	$scope.sortableOptions = {
 		connectWith: '.connectedItemsExample .list-group',
 		update: function(event, ui) {
 			
 			if ($scope.teamsSorted == null){
-				$scope.teamsSorted = ['1'];
+//				$scope.teamsSorted = ['1'];
 			} else {
 
 			} 
 			console.log($scope.teamsSorted);
-		}
+		},
+                stop: function(event, ui){
+                    $scope.teams = $scope.teamsAll.slice();
+                }
 	};
 	
 
@@ -249,7 +253,10 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		url: '/fs/awards.json'
 	}).success(function (result) {
 		$scope.awards = result;
-		var numAwards = Object.keys($scope.awards).length;
+                $scope.awards.forEach(function(award){
+                    award.teamsSorted = [];
+                });
+		var numAwards = $scope.awards.length;
 		console.log(numAwards + " unfiltered awards successfully fetched!");
 	});
 	
@@ -266,6 +273,7 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		url: '/fs/teams.json'
 	}).success(function (result) {
 		$scope.teams = result;
+                $scope.teamsAll = result.slice();
 		var numTeams = Object.keys($scope.teams).length;
 		console.log(numTeams + " teams successfully fetched!");
 	});

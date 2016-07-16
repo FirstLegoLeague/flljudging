@@ -52,16 +52,17 @@
 			
 			
 			<div class="col col-sm-4">
-			<div ng-repeat="item in awards| filter:{category:rubricCategory }" ng-model="awards" class="panel panel-default">
+			<div ng-repeat="award in awards| filter:{category:rubricCategory }" ng-model="awards" class="panel panel-default">
 	
 				<div class="panel-heading">
-					<i class="mdi-editor-format-list-bulleted"></i>{{item.award}}</div>
+					<i class="mdi-editor-format-list-bulleted"></i>{{award.award}}</div>
 						<div class="panel-body">				
-							<div ui-sortable="sortableOptions" ng-model="teamsSorted" class="list-group">
-								<div ng-repeat="item in teamsSorted" class="list-group-item">
+							<div ui-sortable="sortableOptions" ng-model="award.teamsSorted" class="list-group">                                                            
+                                                            <div ng-if="!award.teamsSorted.length">Drag your Nominations in this Area.</div>	
+                                                            <div ng-repeat="team in award.teamsSorted" class="list-group-item">
 									<div class="row-content" >
-										<h4 class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{item.name}} ({{item.number}})</h4>
-										<p class="list-group-item-text">{{item.affiliation}}</p>
+										<h4 class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{team.name}} ({{team.number}})</h4>
+										<p class="list-group-item-text">{{team.affiliation}}</p>
 									</div>
 									<div class="list-group-separator"></div>
 								</div>
@@ -77,10 +78,11 @@
 				<div class="panel-heading"><i class="mdi-editor-format-list-numbered"></i> Ranking list</div>
 					<div class="panel-body">
 					<div ui-sortable="sortableOptions" ng-model="teamsSorted" class="list-group">
-							<div ng-repeat="item in teamsSorted" class="list-group-item">
+							<div ng-if="!teamsSorted.length">Drag your Nominations in this Area.</div>	
+                                                        <div ng-repeat="item in teamsSorted" class="list-group-item">
 								
 									<h4 ng-class="$index< 3?'bg-success':''" class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{item.name}} ({{item.number}})</h4>
-									<p class="list-group-item-text">{{item.affiliation}}</p>
+									<p class="list-group-item-text">{{item.affliation}}</p>
 								
 								
 							</div>
