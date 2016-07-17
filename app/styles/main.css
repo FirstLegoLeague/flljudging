@@ -1,6 +1,23 @@
+.awardSelect{
+    padding:    20px;
+}
+.awardToSelect{
+    border: 1px solid gray;
+    padding: 15px;
+    margin: 10px;
+    
+}
+
+.ngdialog-content{
+    position: absolute;
+    top:15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 .TeamRanked {
     color:red;
-    background-color:green;
+    background-color:lightgray;
 }
 .btn-level0 {
   color: #000;
