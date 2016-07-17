@@ -278,6 +278,10 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window, ng
 		}
 		ngDialog.close();
 	}
+	$scope.NominateForRanking = function (team){
+		this.teamsSorted.push(team);
+		ngDialog.close();
+	}
 	$scope.BringDown = function (award, team){
 		var ida = award.teamsSorted.indexOf(team);
 		var idb = ida + 1;
@@ -285,5 +289,29 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window, ng
 		var teamb = award.teamsSorted[idb];
 		award.teamsSorted[ida] = teamb;
 		award.teamsSorted[idb] = teama;
+	}
+	$scope.BringUp = function (award, team){
+		var ida = award.teamsSorted.indexOf(team);
+		var idb = ida - 1;
+		var teama = award.teamsSorted[ida];
+		var teamb = award.teamsSorted[idb];
+		award.teamsSorted[ida] = teamb;
+		award.teamsSorted[idb] = teama;
+	}
+	$scope.BringDownR = function (team){
+		var ida = this.teamsSorted.indexOf(team);
+		var idb = ida + 1;
+		var teama = this.teamsSorted[ida];
+		var teamb = this.teamsSorted[idb];
+		this.teamsSorted[ida] = teamb;
+		this.teamsSorted[idb] = teama;
+	}
+	$scope.BringUpR = function (team){
+		var ida = this.teamsSorted.indexOf(team);
+		var idb = ida - 1;
+		var teama = this.teamsSorted[ida];
+		var teamb = this.teamsSorted[idb];
+		this.teamsSorted[ida] = teamb;
+		this.teamsSorted[idb] = teama;
 	}
 });

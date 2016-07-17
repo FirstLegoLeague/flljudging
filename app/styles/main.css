@@ -7,6 +7,14 @@
     margin: 10px;
     
 }
+.rankingToSelect{
+    background-color: gray;
+    color:  white;
+    border: 1px solid gray;
+    padding: 15px;
+    margin: 10px;
+    
+}
 
 .ngdialog-content{
     position: absolute;
