@@ -38,7 +38,7 @@
 								<div class="row-action-primary">
 									<i class="mdi-hardware-keyboard-tab"></i>
 								</div>
-								<div class="row-content" ng-class="{'TeamRanked':isTeamRanked(item)}"> TODO Class Veranderen
+								<div class="row-content" ng-class="{'TeamRanked':isTeamRanked(item)}">
 									<div class="action-secondary"><i class="mdi-action-info-outline"></i></div>
 									<h4 class="list-group-item-heading"> {{item.name}} ({{item.number}})</h4>
 									<p class="list-group-item-text">{{item.affiliation}}</p>
@@ -52,12 +52,12 @@
 			
 			
 			<div class="col col-sm-4">
-			<div ng-repeat="award in awards| filter:{category:rubricCategory }" ng-model="awards" class="panel panel-default">
+			<div ng-repeat="(key, award) in awards| filter:{category:rubricCategory }" ng-model="awards" class="panel panel-default">
 	
 				<div class="panel-heading">
 					<i class="mdi-editor-format-list-bulleted"></i>{{award.award}}</div>
 						<div class="panel-body">				
-							<div ui-sortable="sortableOptions" ng-model="award.teamsSorted" class="list-group">                                                            
+							<div ui-sortable="sortableOptions" ng-model="award.teamsSorted" class="list-group award{{key}}">                                                            
                                                             <div ng-if="!award.teamsSorted.length">Drag your Nominations in this Area.</div>	
                                                             <div ng-repeat="team in award.teamsSorted" class="list-group-item">
 									<div class="row-content" >
@@ -77,7 +77,7 @@
 				<div class="panel panel-default">
 				<div class="panel-heading"><i class="mdi-editor-format-list-numbered"></i> Ranking list</div>
 					<div class="panel-body">
-					<div ui-sortable="sortableOptions" ng-model="teamsSorted" class="list-group">
+					<div ui-sortable="sortableOptions" ng-model="teamsSorted" class="list-group overall">
 							<div ng-if="!teamsSorted.length">Drag your Nominations in this Area.</div>	
                                                         <div ng-repeat="item in teamsSorted" class="list-group-item">
 								
