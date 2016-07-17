@@ -29,7 +29,7 @@
 								<div class="row-action-primary">
 									<i class="mdi-hardware-keyboard-tab"></i>
 								</div>
-								<div class="row-content" ng-click="AwardSelection(item)" ng-class="{'TeamRanked':isTeamRanked(item)}">;;
+                                                            <div class="row-content" ng-click="AwardSelection(item, rubricCategory)" ng-class="{'TeamRanked':isTeamRanked(item)}">
 									<div class="action-secondary"><i class="mdi-action-info-outline"></i></div>
 									<h4 class="list-group-item-heading"> {{item.name}} ({{item.number}})</h4>
 									<p class="list-group-item-text">{{item.affiliation}}</p>
@@ -52,7 +52,7 @@
                                                             <div ng-repeat="team in award.teamsSorted" class="list-group-item">
 									<div class="row-content" >
 										<h4 class="list-group-item-heading"><span class="label label-default">{{$index+1}}</span> {{team.name}} ({{team.number}})</h4>
-										<p class="list-group-item-text">{{team.affiliation}}</p>
+                                                                                <p class="list-group-item-text">{{team.affiliation}}<img src="images/down.png" ng-click="BringDown(award, team)"></p>
 									</div>
 									<div class="list-group-separator"></div>
 								</div>

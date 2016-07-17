@@ -1,0 +1,4 @@
+    <div class="awardSelect">
+        Nominate team {{": "+ ngDialogData.team.number + "" +ngDialogData.team.name}}
+        <div ng-repeat="award in ngDialogData.awardArray | filter:{category:ngDialogData.category} " class="awardToSelect" ng-click="ngDialogData.scope.NominateForAward(award, ngDialogData.team)">{{award.award}}</div>
+    </div>

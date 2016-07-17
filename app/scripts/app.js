@@ -304,19 +304,28 @@ console.log('initing scope');
 	$scope.SubmitForm = function (){
 		alert("TODO");
 	}
-        $scope.AwardSelection = function (team){
+        $scope.AwardSelection = function (team, category){
             ngDialog.open({ 
                 template: 'pages/dialogSelectAward.html', 
                 data:{
                     team:team, 
                     awardArray:this.awards, 
-                    scope:this
+                    scope:this,
+                    category:category
                 }
             });
         }
         $scope.NominateForAward = function (award, team){
             award.teamsSorted.push(team);
             ngDialog.close();
+        }
+        $scope.BringDown = function (award, team){
+            var ida = award.teamsSorted.indexOf(team);
+            var idb = ida + 1;
+            var teama = award.teamsSorted[ida];
+            var teamb = award.teamsSorted[idb];
+            award.teamsSorted[ida] = teamb;
+            award.teamsSorted[idb] = teama;
         }
     
 });
