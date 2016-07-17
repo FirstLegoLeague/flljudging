@@ -272,9 +272,15 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window, ng
 		}
 		return list;
 	}
+	function existsTeam(list, teamNumber) {
+		return list.some(function(teamSorted) {
+			return teamSorted.number == teamNumber;
+		});
+	}
 	$scope.sortableOptions = {
 		// see: https://github.com/angular-ui/ui-sortable/
 		// and http://angular-ui.github.io/ui-sortable/
+		//helper: 'clone', // see: http://stackoverflow.com/questions/947195/jquery-ui-sortable-how-can-i-cancel-the-click-event-on-an-item-thats-dragged#answer-2977904
 		connectWith: '.connectedItemsExample .list-group',
 		update: function(event, ui) {
 			if ($scope.teamsSorted == null){
@@ -300,9 +306,7 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window, ng
 				}
 				else if (!ui.item.sortable.received && (teamsSortedTarget != null)) {
 					// if the team already exists in the target list, cancel the drag-and-drop action (but leave it in the source list).
-					if (teamsSortedTarget.some(function(teamSorted) {
-						return teamSorted.number == ui.item.sortable.model.number;
-					})) {
+					if (existsTeam(teamsSortedTarget, ui.item.sortable.model.number)) {
 						ui.item.sortable.cancel();
 					}
 				}
@@ -383,9 +387,7 @@ console.log('initing scope');
 					url: '/fs/completed_rubrics/' + filename
 				}).success(function(data) {
 					if (data.Panel.panel == panel) {
-						if (!$scope.teams.some(function(team) {
-							return team.number == data.Team.number;
-						})) {
+						if (!existsTeam($scope.teams, data.Team.number)) {
 							console.log(panel + " " + data.Team.number);
 							$scope.teams.push(data.Team);
 							$scope.teamsAll.push(data.Team);
@@ -484,28 +486,32 @@ console.log('initing scope');
 			console.log("--------");
 		});	
 	}
-        $scope.AwardSelection = function (team, category){
-            ngDialog.open({ 
-                template: 'pages/dialogSelectAward.html', 
-                data:{
-                    team:team, 
-                    awardArray:this.awards, 
-                    scope:this,
-                    category:category
-                }
-            });
-        }
-        $scope.NominateForAward = function (award, team){
-            award.teamsSorted.push(team);
-            ngDialog.close();
-        }
-        $scope.BringDown = function (award, team){
-            var ida = award.teamsSorted.indexOf(team);
-            var idb = ida + 1;
-            var teama = award.teamsSorted[ida];
-            var teamb = award.teamsSorted[idb];
-            award.teamsSorted[ida] = teamb;
-            award.teamsSorted[idb] = teama;
-        }
-    
+	$scope.AwardSelection = function (team, category){
+		ngDialog.open({ 
+			template: 'pages/dialogSelectAward.html', 
+			data:{
+				team:team, 
+				awardArray:this.awards,
+				scope:this,
+				category:category
+			}
+		});
+	}
+	$scope.isAwardTeam = function(award, team) {
+		return existsTeam(award.teamsSorted, team.number);
+	}
+	$scope.NominateForAward = function (award, team){
+		if (!existsTeam(award.teamsSorted, team.number)) {
+			award.teamsSorted.push(team);
+		}
+		ngDialog.close();
+	}
+	$scope.BringDown = function (award, team){
+		var ida = award.teamsSorted.indexOf(team);
+		var idb = ida + 1;
+		var teama = award.teamsSorted[ida];
+		var teamb = award.teamsSorted[idb];
+		award.teamsSorted[ida] = teamb;
+		award.teamsSorted[idb] = teama;
+	}
 });
