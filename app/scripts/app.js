@@ -2,7 +2,7 @@
 // script.js
 
 	// also include ngRoute for all our routing needs
-var flljudgingApp = angular.module('flljudgingApp', ['ngRoute','ui.sortable']);
+var flljudgingApp = angular.module('flljudgingApp', ['ngRoute','ui.sortable','ngDialog']);
 
 
 // configure our routes
@@ -221,7 +221,7 @@ flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 	}
 });
 
-flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
+flljudgingApp.controller('NominationsForm', function ($scope, $http, $window, ngDialog) {
 
 	$scope.awards = [];
 	
@@ -245,7 +245,7 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		}
 	};
 	
-
+console.log('initing scope');
 	$http({
 		method: 'GET',
 		url: '/fs/awards.json'
@@ -302,7 +302,21 @@ flljudgingApp.controller('NominationsForm', function ($scope, $http, $window) {
 		return this.isPanelSelected() && this.areAllRanked();
 	};
 	$scope.SubmitForm = function (){
-		// TODO implement function
 		alert("TODO");
 	}
+        $scope.AwardSelection = function (team){
+            ngDialog.open({ 
+                template: 'pages/dialogSelectAward.html', 
+                data:{
+                    team:team, 
+                    awardArray:this.awards, 
+                    scope:this
+                }
+            });
+        }
+        $scope.NominateForAward = function (award, team){
+            award.teamsSorted.push(team);
+            ngDialog.close();
+        }
+    
 });
