@@ -53,9 +53,17 @@ flljudgingApp.config(function($routeProvider) {
 			controller  : 'rankingsCVController'
 		})
 		// route for the admin page
-		.when('/admin', {
+		/*.when('/admin', {
 			templateUrl : 'pages/admin.html',
 			controller  : 'adminController'
+		})*/
+		.when('/AdminJudges', {
+			templateUrl : 'pages/adminJudges.html',
+			controller : 'adminJudgesController'
+		})
+		.when('/GeneralSettings', {
+			templateUrl : 'pages/generalSettings.html',
+			controller : 'generalSettingsController'
 		});
 });
 // create the controller and inject Angular's $scope
@@ -108,7 +116,11 @@ flljudgingApp.controller('rankingsCVController', function($scope) {
 	$scope.rubricCategory = 'Core Values';
 	$scope.rubricIcon = 'CoreValues.png';
 });
-flljudgingApp.controller('adminController', function($scope) {
+/*flljudgingApp.controller('adminController', function($scope) {
 	$scope.message = 'The admin form will go here.';
 	
+});*/
+flljudgingApp.controller('adminJudgesController', function($scope) {
+});
+flljudgingApp.controller('generalSettingsController', function($scope) {
 });
