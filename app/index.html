@@ -30,6 +30,8 @@
 	<script src="scripts/app_rubrics.js"></script>
 	<script src="scripts/app_nominations.js"></script>
 	<script src="scripts/app_rankings.js"></script>
+	<script src="scripts/app_admin_judges.js"></script>
+	<script src="scripts/app_general_settings.js"></script>
 	
 	<!--CSS @TODO: replace with local files -->
 	<nav class="navbar navbar-default">
@@ -67,7 +69,14 @@
 							<li><a href="#RankingsCV">Core Values</a></li>
 						</ul>
 					</li>
-					<li><a href="#admin"><i class="fa fa-cog"></i> Admin</a></li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i> Admin<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#GeneralSettings">General settings</a></li>
+							<li><a href="#AdminJudges">Manage judges</a></li>
+						</ul>
+					</li>
+					<!-- <li><a href="#admin"><i class="fa fa-cog"></i> Admin2</a></li> -->
 				</ul>
 			</div>
 		</div>
