@@ -8,7 +8,12 @@
 
 	<!-- Panel to overview all judges -->
 	<div class="panel panel-primary" >
-		<div class="panel-heading"><i class="mdi-action-assignment-ind"> </i> Current judging panels</div>
+		<div class="panel-heading">
+			<i class="mdi-action-assignment-ind"> </i>
+			Current judging panels
+			<!-- Save the current judging-table to the judgingpanels-dir -->
+			<button class="btn btn-default pull-right btn-sm" ng-click="saveJudgingPanels()" ng-disabled="!(saveJudgesList == true)"><i class="fa fa-check"></i> Save</button>
+		</div>
 		<div class="panel-body">
 			<table class="table table-striped" ng-show="judgingpanels != null">
 				<thead>
@@ -33,7 +38,7 @@
 							{{panel.category === "RD" ? "Robot Design" : ""}}
 							{{panel.category === "CV" ? "Core Values" : ""}}
 						</td>
-						<td>{{panel.lane}}</td>
+						<td>{{panel.judgingGroup}}</td>
 						<td>{{panel.room}}</td>
 						<td><span ng-repeat="name in panel.names">{{!$last ? name + ", " : name}}</span></td>
 						<td>
@@ -67,7 +72,7 @@
 							<option value="RD">Robot Design</option>
 							<option value="CV">Core Values</option>
 						</select></td>
-						<td><select ng-model="newPanelInput.lane">
+						<td><select ng-model="newPanelInput.judgingGroup">
 							<option value="A">A</option>
 							<option value="B">B</option>
 							<option value="C">C</option>

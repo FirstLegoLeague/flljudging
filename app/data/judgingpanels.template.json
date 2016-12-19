@@ -1,7 +1,7 @@
 [	{
 		"id":"RDA",
 		"category":"RD",
-		"lane":"A",
+		"judgingGroup":"A",
 		"room": "1.00",
 		"names": [
 			"me",
@@ -12,7 +12,7 @@
 	{
 		"id":"PR-A",
 		"category":"PR",
-		"lane":"A",
+		"judgingGroup":"A",
 		"room": "1.02",
 		"names": [
 			"me2",

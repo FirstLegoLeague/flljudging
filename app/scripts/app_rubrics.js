@@ -23,7 +23,7 @@ flljudgingApp.controller('RubricForm', function ($scope, $http, $window) {
 	}).success(function (result) {
 		$scope.judgingpanels = result;
 		var numPanels = Object.keys($scope.judgingpanels).length;
-		console.log(numPanels + "unfiltered judging panels successfully fetched!");
+		console.log(numPanels + " unfiltered judging panels successfully fetched!");
 	});
 	
 	$http({

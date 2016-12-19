@@ -4,7 +4,6 @@
 	// also include ngRoute for all our routing needs
 var flljudgingApp = angular.module('flljudgingApp', ['ngRoute','ui.sortable','ngDialog']);
 
-
 // configure our routes
 flljudgingApp.config(function($routeProvider) {
 	$routeProvider
@@ -60,10 +59,6 @@ flljudgingApp.config(function($routeProvider) {
 		.when('/AdminJudges', {
 			templateUrl : 'pages/adminJudges.html',
 			controller : 'adminJudgesController'
-		})
-		.when('/GeneralSettings', {
-			templateUrl : 'pages/generalSettings.html',
-			controller : 'generalSettingsController'
 		});
 });
 // create the controller and inject Angular's $scope
@@ -73,17 +68,20 @@ flljudgingApp.controller('mainController', function($scope) {
 });
 flljudgingApp.controller('rubricsRDController', function($scope) {
 	$scope.message = 'The Robot Design rubric will go here.';
-	$scope.rubricCategory = 'Robot Design';
+	$scope.rubricCategory = 'RD';
+	$scope.rubricName = 'Robot Design';
 	$scope.rubricIcon = 'RobotDesign.png';
 });
 flljudgingApp.controller('rubricsPRController', function($scope) {
 	$scope.message = 'The Project rubric will go here.';
-	$scope.rubricCategory = 'Project';
+	$scope.rubricCategory = 'PR';
+	$scope.rubricName = 'Project';
 	$scope.rubricIcon = 'Project.png';
 });
 flljudgingApp.controller('rubricsCVController', function($scope) {
 	$scope.message = 'The Core Values rubric will go here.';
-	$scope.rubricCategory = 'Core Values';
+	$scope.rubricCategory = 'CV';
+	$scope.rubricName = 'Core Values';
 	$scope.rubricIcon = 'CoreValues.png';
 });
 flljudgingApp.controller('nominationsPRController', function($scope) {
@@ -121,6 +119,4 @@ flljudgingApp.controller('rankingsCVController', function($scope) {
 	
 });*/
 flljudgingApp.controller('adminJudgesController', function($scope) {
-});
-flljudgingApp.controller('generalSettingsController', function($scope) {
 });
