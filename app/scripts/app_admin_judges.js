@@ -41,7 +41,7 @@ flljudgingApp.controller('AdminJudgesForm', function ($scope, $http, $window) {
 
 	$scope.AddNewPanel = function () {
 		if($scope.newPanel != null) {
-			$scope.newPanel.id = "xx";
+			$scope.newPanel.id = getPanelID(angular.copy($scope.newPanelInput.category), angular.copy($scope.newPanelInput.lane));
 			$scope.newPanel.category = angular.copy($scope.newPanelInput.category);
 			$scope.newPanel.lane = angular.copy($scope.newPanelInput.lane);
 			$scope.newPanel.room = angular.copy($scope.newPanelInput.room);
@@ -60,6 +60,10 @@ flljudgingApp.controller('AdminJudgesForm', function ($scope, $http, $window) {
 		} else {
 			console.log("Error while saving!");
 		}
+	};
+
+	function getPanelID(category, lane) {
+		return category + "-" + lane;
 	};
 
 	$scope.DelPanel = function (index) {
@@ -87,5 +91,19 @@ flljudgingApp.controller('AdminJudgesForm', function ($scope, $http, $window) {
 			console.log("Failed!");
 			console.log("--------");
 		});	
+	};
+
+	$scope.checkRoom = function(newRoom) {
+		if($scope.judgingpanels != null) {
+			var roomExists = false;
+			angular.forEach($scope.judgingpanels, function(panel, xx) {
+				if(panel.room == newRoom) {
+					roomExists = true;
+				}
+			});
+			console.log("Room exist?:" + roomExists);
+		} else {
+			return;
+		}
 	};
 });
