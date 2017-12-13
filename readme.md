@@ -21,7 +21,20 @@ Since Angular has its own local server you can use `ng serve` to start serving t
 We appreciate contribution and feedback. If you want to contribute please fork this repository and make a pull-request. Read the [issues](https://github.com/firstlegoleague/flljudging/issues) and the [wiki](https://github.com/firstlegoleague/flljudging/wiki) to see what we are working on and where we need help.
 
 ## Project
-See the issues for more...
+We try to keep the application modular since it has a lot of different functionalities. The overview of modules can be find on the [wiki](https://github.com/firstlegoleague/flljudging/wiki).
+
+#### Parts
+Since the application does not only exists of code, the project is divided into parts:
+
+- Code
+  - Bugs (have the highest priority in the project)
+  - Requirements (functions that must be implemented, high priority)
+  - Features (functions that could be implemented, lower priority)
+  - Ideas (extra functions that may be implemented, needs decision)
+- Documentation
+- FLL-digitalization (things that are related to the general digitalization projects for the FLL)
+
+In the [issues](https://github.com/firstlegoleague/flljudging/issues) you can see the list of things that need work or that we are Currently working on. If you find a bug or want to start working on something, please comment on the corresponding issue.
 
 ## License
 This projected is licensed under the terms of the [GNU GPL v2.0 licenses](/LICENSE).
