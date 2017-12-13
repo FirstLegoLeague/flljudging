@@ -11,6 +11,10 @@
   - Judges can pick one or more of the three strengths.  
 - Optional field for private judges notes which are used for deliberations only.
   - UI must clearly indicate the difference between private and returned comments.
+  - Another type of optional note-functionality is the upload of (team) photos.
+    - For the robot-judging this could be of a robot and the team,
+    - For the project-judging this could be of a demonstration and the team,
+    - For core-values this could be a team picture.
 - Needs to have the ability to print / export rubrics in standard PDF format for returning to teams.  
   - Printability is the minimum requirement, however, support for digital return is desirable.
 - At no point should the rubric display a calculated score for a team.  
@@ -51,4 +55,4 @@ In general, the deliberations module should replicate the features provided in J
 ## Certification and Checkout
 - The Deliberations module should support a final checkout and certification of all data from judging.  
 - For Digital Rubrics and Rankings, the Judge Advisor should be able to view all rubrics for review and auditing.  The Judge Advisor should be able to edit if needed.
-- The Judge Advisor should be able to review all scripts before finalizing for printing. 
+- The Judge Advisor should be able to review all scripts before finalizing for printing.
