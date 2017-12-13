@@ -1,5 +1,5 @@
 # FLL-Judging
-The FLL Judging application is an application to make the judging during a tournament digital. It is a first step to move to a complete digital scoring and judging system for FLL tournaments. *Currently this branch is in a __development__ stage*.
+The FLL Judging application is an application to make the judging during a tournament digital. It is a first step to move to a complete digital scoring and judging system for FLL tournaments. *Currently this repository is in a __development__ stage*.
 
 #### Goal
 The goal of the application is to support the judging process according the international FLL guidelines. This includes (but is not limited to) the following:
