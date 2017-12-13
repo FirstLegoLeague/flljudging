@@ -10,13 +10,15 @@ The goal of the application is to support the judging process according the inte
 For more information on the requirements refer to the [documentation](/description.md) file.
 
 ## Development
-xx
+This application is made using [**Angular**](https://angular.io). Like the [*scoring*](https://github.com/firstlegoleague/fllscoring) it is the ambition to support a wide range of configurations.
 
 #### Installation
-xx
+The easiest thing to install this application is using [NodeJS](https://nodejs.org) and clone this repository. Then use `npm install` to install the dependencies. See the [wiki/dependencies](https://github.com/firstlegoleague/flljudging/wiki) for the list of packages this project uses.
+
+Since Angular has its own local server you can use `ng serve` to start serving the application. Go to *http://localhost:4200* in your web browser to see the application work. After each save of a file, Angular will automatically reload the page.
 
 #### Contribution
-xx
+We appreciate contribution and feedback. If you want to contribute please fork this repository and make a pull-request. Read the [issues](https://github.com/firstlegoleague/flljudging/issues) and the [wiki](https://github.com/firstlegoleague/flljudging/wiki) to see what we are working on and where we need help.
 
 ## Project
 See the issues for more...
@@ -30,7 +32,7 @@ Basically, it allows users to legally copy, distribute and modify software. This
 - Provide a download link on your website. Put the software on a bunch of thumb drives and give them away. Print out the source code and throw it from the rooftops (please don’t, though, because that would waste a lot of paper and make a mess). Charge a fee to distribute the software.
 - If you want to charge someone to provide the software, set it up on their website or do anything else related to it, you can do so. But, you must give them a copy of the GNU GPL, which basically tells them that they could probably get the software elsewhere for free. Best to be up front about that, and about why you’re charging them.
 - If you want to add or remove functionality, go ahead. If you want to use a portion of the code in another project, you can. The only catch is that the other project must also be released under the GPL. Ideally we would want you to share your improvements back with us on this GitHub.
-- We welcome your feedback but please remember that this software comes with no guarantees. We are dedicated volunteer and experiences software developers and will do our best make sure we make a valuable and reliable contribution to the community. However the use of this software is at your own risk.
+- We welcome your feedback but please remember that this software comes with no guarantees. We are dedicated volunteers and experienced software developers and will do our best make sure we make a valuable and reliable contribution to the community. However the use of this software is at your own risk.
 
 ## Authors
 - [Marcin van de Ven](https://github.com/marzman95)

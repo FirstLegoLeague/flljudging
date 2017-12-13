@@ -1,0 +1,17 @@
+{
+  "name": "flljudging",
+  "license": "GPL-2.0",
+  "description": "FLL Judging application",
+  "version": "0.0.1",
+  "authors": [
+    "Marcin van de Ven <https://github.com/marzman95>",
+    "Kenny Meesters <https://github.com/kmeesters"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firstlegoleague/flljudging"
+  },
+  "dependencies": {
+    "@angular/cli": "^1.6.0"
+  }
+}
