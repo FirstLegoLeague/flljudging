@@ -1,7 +1,0 @@
-    <div class="awardSelect">
-        Nominate team {{": "+ ngDialogData.team.number + "" +ngDialogData.team.name}}
-        <span class="panel-heading">Nominate team {{": "+ ngDialogData.team.number + " " +ngDialogData.team.name}}</span>
-        <div class="rankingToSelect" ng-click="ngDialogData.scope.NominateForRanking(ngDialogData.team)">Ranking</div>
-        <hr>
-        <div ng-repeat="award in ngDialogData.awardArray | filter:{category:ngDialogData.category}" class="awardToSelect" ng-class="{'TeamRanked':ngDialogData.scope.isAwardTeam(award, ngDialogData.team)}" ng-click="ngDialogData.scope.NominateForAward(award, ngDialogData.team)">{{award.award}}</div>
-    </div>

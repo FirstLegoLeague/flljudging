@@ -1,9 +1,0 @@
-{
-	"name" : "Name of the tournament",
-	"lanes": [{
-		"name": "A",
-		"rooms": ["1.01", "1.02"]},
-		{"name": "B",
-		"rooms": ["2.01", "2.02"]}
-	]
-}
