@@ -12,13 +12,15 @@ For more information on the requirements refer to the [documentation](/descripti
 ## Development
 This application is made using [**Angular**](https://angular.io). Like the [*scoring*](https://github.com/firstlegoleague/fllscoring) it is the ambition to support a wide range of configurations.
 
-#### Installation
-The easiest thing to install this application is using [NodeJS](https://nodejs.org) and clone this repository. Then use `npm install` to install the dependencies. See the [wiki/dependencies](https://github.com/firstlegoleague/flljudging/wiki) for the list of packages this project uses.
+#### Installation for development
+The easiest way to install this application is using [NodeJS](https://nodejs.org) and clone this repository. Then use `npm install --save-dev` to install the dependencies. See the [wiki/code](https://github.com/firstlegoleague/flljudging/wiki/code) for the list of packages this project uses.
 
-Since Angular has its own local server you can use `ng serve` to start serving the application. Go to *http://localhost:4200* in your web browser to see the application work. After each save of a file, Angular will automatically reload the page.
+Use `ng serve` (needs the *@angule/cli* dev-dependency) to start serving the application. Go to *http://localhost:4200* in your web browser to see the application work. After each save of a file, Angular will automatically reload the page.
 
 #### Contribution
 We appreciate contribution and feedback. If you want to contribute please fork this repository and make a pull-request. Read the [issues](https://github.com/firstlegoleague/flljudging/issues) and the [wiki](https://github.com/firstlegoleague/flljudging/wiki) to see what we are working on and where we need help.
+
+The application core can be found in the */src*-folder. The main application can be found in the */src/app*-folder.
 
 ## Project
 We try to keep the application modular since it has a lot of different functionalities. The overview of modules can be find on the [wiki](https://github.com/firstlegoleague/flljudging/wiki).
