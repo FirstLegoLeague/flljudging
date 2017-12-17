@@ -1,0 +1,48 @@
+<nav id="topNav" class="navbar navbar-expand-lg justify-content-between navbar-dark bg-dark">
+  <!-- Title -->
+  <div class="container">
+    <a class="navbar-brand" href="#">{{globals.title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+  <!-- The menu -->
+  <div class="container">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" role="navigation">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fa fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="rubricDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-edit"></i> Rubrics
+        </a>
+        <!--TODO: Delete to single rubric when settings enables panel choosing-->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">
+            <img src="assets/images/PR_grey.png" height="20px"/>
+            Project
+          </a>
+          <a class="dropdown-item" href="#">
+            <img src="assets/images/RD_grey.png" height="20px"/>
+            Robot
+          </a>
+          <a class="dropdown-item" href="#">
+            <img src="assets/images/CV_grey.png" height="20px"/>
+            Core Values
+          </a>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-list-ol"></i> Nominations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-trophy"></i> Deliberations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
