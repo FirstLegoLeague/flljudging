@@ -2,21 +2,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// Angular module imports
-
+// Angular (internal) module imports
+import { AppRoutingModule } from './/app-routing.module';
+import { AppComponent } from './app.component';
 
 // Local app imports
-import { AppComponent } from './app.component';
-import { Navbar } from './navbar.component';
-import { Globals } from './globals'
+import { HomeComponent } from './home.component';
+import { NavComponent } from './navbar.component';
+import { Globals } from './globals';
+
+// Module imports
+import { RubricComponent } from './module/rubric/rubric';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    Navbar
+    NavComponent,
+    HomeComponent,
+    RubricComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [
     Globals

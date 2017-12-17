@@ -10,7 +10,7 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "images"
+        "images/"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,6 +20,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "main.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css"
       ],
