@@ -1,7 +1,7 @@
 <nav id="topNav" class="navbar navbar-expand-lg justify-content-between navbar-dark bg-dark">
   <!-- Title -->
   <div class="container">
-    <a class="navbar-brand" href="#">{{globals.title}}</a>
+    <a class="navbar-brand" href="#">{{globals.title}}: {{globals.tournament}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,19 +16,19 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="rubricDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="assets/images/TriangleSmall_grey.png" height="18px"/> Rubrics
+          <img src="assets/images/TriangleSmall_grey.png" height="18px"/> Judging forms
         </a>
         <!--TODO: Delete to single rubric when settings enables panel choosing-->
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/rubric/PR">
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item text-muted" href="judging/PR">
             <img src="assets/images/PR_color.png" height="20px"/>
             Project
           </a>
-          <a class="dropdown-item" href="/rubric/RD">
+          <a class="dropdown-item text-muted" href="judging/RD">
             <img src="assets/images/RD_color.png" height="20px"/>
             Robot
           </a>
-          <a class="dropdown-item" href="/rubric/CV">
+          <a class="dropdown-item text-muted" href="judging/CV">
             <img src="assets/images/CV_color.png" height="20px"/>
             Core Values
           </a>
@@ -43,7 +43,7 @@
           <a class="nav-link" href="#"><i class="fa fa-trophy"></i> Deliberations</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+          <a class="nav-link" href="settings"><i class="fa fa-cog"></i> Settings</a>
         </li>
       </ul>
     </div>

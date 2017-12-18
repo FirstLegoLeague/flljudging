@@ -1,6 +1,7 @@
 export class Globals {
   title = 'FLL Judging';
   version = '0.0.1';
+  tournament = 'test';
 
   typeToString(type): string {
     var fullType = '';

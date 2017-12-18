@@ -7,12 +7,14 @@ import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
 
 // Local app imports
-import { HomeComponent } from './home.component';
-import { NavComponent } from './navbar.component';
-import { Globals } from './globals';
+import { HomeComponent } from './base/home';
+import { NavComponent } from './base/navbar';
+import { Globals } from './base/globals';
 
 // Module imports
-import { RubricComponent } from './module/rubric/rubric';
+import { JudgingComponent } from './judging/judging';
+import { SettingsComponent } from './settings/settings';
+import { SettingsService } from './service/settings';
 
 
 @NgModule({
@@ -20,14 +22,16 @@ import { RubricComponent } from './module/rubric/rubric';
     AppComponent,
     NavComponent,
     HomeComponent,
-    RubricComponent
+    JudgingComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [
-    Globals
+    Globals,
+    SettingsService
   ],
   bootstrap: [
     AppComponent

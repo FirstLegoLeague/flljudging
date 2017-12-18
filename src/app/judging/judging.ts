@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Globals } from '../../globals';
+import { Globals } from '../base/globals';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'rubric',
-  templateUrl: 'rubric.html'
+  selector: 'judging',
+  templateUrl: 'judging.html'
 })
 
-export class RubricComponent {
+export class JudgingComponent {
   constructor(
     private route: ActivatedRoute,
     private globals: Globals

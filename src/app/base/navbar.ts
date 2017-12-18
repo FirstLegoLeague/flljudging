@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Globals } from './globals';
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html'
+  selector: 'navbar',
+  templateUrl: './navbar.html'
 })
-
-export class HomeComponent {
+export class NavComponent {
   constructor(private globals: Globals){
   }
 }
