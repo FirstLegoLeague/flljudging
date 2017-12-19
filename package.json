@@ -52,6 +52,9 @@
     "serve-static": "^1.13.1",
     "time-grunt": "^1.4.0"
   },
+  "engines": {
+    "node": ">=0.12.0"
+  },
   "scripts": {
     "start": "node localserver"
   }

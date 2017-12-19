@@ -9,7 +9,7 @@ var basicAuth = require('basic-auth-connect');
 var basicAuthCreds = argv.u;
 
 app.use(express.static(__dirname + '/app'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/nm', express.static(__dirname + '/node_modules'));
 
 //set up basic authentication
 if (basicAuthCreds) {

@@ -15,7 +15,7 @@ This application is made using [**Angularjs**](https://angularjs.org). Like the 
 #### Installation for development
 The easiest way to install this application is using [NodeJS](https://nodejs.org) and clone this repository. Then use `npm install --save-dev` to install the dependencies. See the [wiki/code](https://github.com/firstlegoleague/flljudging/wiki/code) for the list of packages this project uses.
 
-Use `node localserver` to start serving the application. Go to *http://localhost:1391* in your web browser to see the application work. You can use the `-p <port>` option to set an preferred port instead of the standard port *1391*.
+Use `npm start` to start serving the application. Go to *http://localhost:1391* in your web browser to see the application work. You can use the `-p <port>` option to set an preferred port instead of the standard port *1391*.
 
 #### Contribution
 We appreciate contribution and feedback. If you want to contribute please fork this repository and make a pull-request. Read the [issues](https://github.com/firstlegoleague/flljudging/issues) and the [wiki](https://github.com/firstlegoleague/flljudging/wiki) to see what we are working on and where we need help.
