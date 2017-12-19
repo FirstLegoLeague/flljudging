@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 // Angular (internal) module imports
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Local app imports
 import { HomeComponent } from './base/home';
@@ -27,7 +28,8 @@ import { SettingsService } from './service/settings';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     Globals,

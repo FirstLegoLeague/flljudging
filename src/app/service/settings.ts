@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ParseString } from 'xml2js';
+import { ActivatedRoute } from '@angular/router';
+import { Globals } from '../base/globals';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
 export class SettingsService {
-
-  constructor() { }
-
 }

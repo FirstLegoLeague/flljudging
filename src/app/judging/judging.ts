@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Globals } from '../base/globals';
 import { ActivatedRoute } from '@angular/router';
+import { ParseString } from 'xml2js';
 
 @Component({
   selector: 'judging',
