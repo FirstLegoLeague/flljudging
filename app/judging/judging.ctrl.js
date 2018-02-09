@@ -1,4 +1,3 @@
 flljudging.controller('JudgingFormController', function() {
-  this.type = "";
-  this.title = "Form of []";
+  this.title = "Form of [" + this.type + "]";
 });

@@ -10,6 +10,9 @@ var basicAuthCreds = argv.u;
 
 app.use(express.static(__dirname + '/app'));
 app.use('/nm', express.static(__dirname + '/node_modules'));
+app.get('/*', function(req, res){
+  res.sendFile(__dirname + '/app/index.html');
+});
 
 //set up basic authentication
 if (basicAuthCreds) {
