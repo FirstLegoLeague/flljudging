@@ -1,7 +1,8 @@
+<!-- Template file for the navigation bar -->
 <nav id="topNav" class="navbar navbar-expand-lg justify-content-between navbar-dark bg-dark">
   <!-- Title -->
   <div class="container">
-    <a class="navbar-brand" href="#">{{globals.title}}: {{globals.tournament}}</a>
+    <a class="navbar-brand" href="#" ng-bind-html="navbar.title"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,24 +13,25 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" role="navigation">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-home"></i> Home</a>
+        <a class="nav-link" href="/home"><i class="fa fa-home"></i> Home</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="rubricDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="assets/images/TriangleSmall_grey.png" height="18px"/> Judging forms
+        <a class="nav-link dropdown-toggle" href="home" id="rubricDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="images/TriangleSmall_grey.png" height="15px"/> Judging forms
         </a>
-        <!--TODO: Delete to single rubric when settings enables panel choosing-->
+        <!-- TODO: Delete to single rubric when settings enables panel choosing -->
+        <!-- TODO: Add tooltips for menu-buttons -->
         <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item text-muted" href="judging/PR">
-            <img src="assets/images/PR_color.png" height="20px"/>
+            <img src="images/PR_grey.png" height="17px"/>
             Project
           </a>
           <a class="dropdown-item text-muted" href="judging/RD">
-            <img src="assets/images/RD_color.png" height="20px"/>
+            <img src="images/RD_grey.png" height="17px"/>
             Robot
           </a>
           <a class="dropdown-item text-muted" href="judging/CV">
-            <img src="assets/images/CV_color.png" height="20px"/>
+            <img src="images/CV_grey.png" height="17px"/>
             Core Values
           </a>
         </div>
@@ -37,10 +39,10 @@
           <a class="nav-link" href="#"><i class="fa fa-list-ol"></i> Ranking</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-list-ol"></i> Nominations</a>
+          <a class="nav-link" href="#"><i class="fa fa-trophy"></i> Nominations</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-trophy"></i> Deliberations</a>
+          <a class="nav-link" href="#"><i class="fa fa-comments-o"></i> Deliberations</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="settings"><i class="fa fa-cog"></i> Settings</a>
