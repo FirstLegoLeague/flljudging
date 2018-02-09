@@ -1,0 +1,9 @@
+<form type="CV" lang="EN_US">
+  <category name="Mechanical Design">
+    <requirement name="Durability" description="Evidence of structural integrity; ability to withstand rigors of competition">
+      <not-demonstrated></not-demonstrated>
+      <beginning>quite fragile; breaks a lot</beginning>
+      <developing>frequent</developing>
+    </requirement>
+  </category>
+</form>

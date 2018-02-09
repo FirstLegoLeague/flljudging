@@ -7,6 +7,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var port = argv.p||1391;
 var basicAuth = require('basic-auth-connect');
 var basicAuthCreds = argv.u;
+var xml2js = require('xml2js').parseString;
 
 app.use(express.static(__dirname + '/app'));
 app.use('/nm', express.static(__dirname + '/node_modules'));
