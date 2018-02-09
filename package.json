@@ -24,8 +24,17 @@
     "minimist": ">=1.2.0",
     "mkdirp": ">=0.5.1",
     "jquery": "^3.2.1",
+<<<<<<< HEAD
+    "rxjs": "^5.5.2",
+<<<<<<< HEAD
+    "zone.js": "^0.8.14",
+=======
     "popper.js": "^1.12.9",
+>>>>>>> master
     "xml2js": "^0.4.19"
+=======
+    "zone.js": "^0.8.14"
+>>>>>>> ace1ffe2bc94df833ca7110ff556fe29e5ce6e5c
   },
   "devDependencies": {
     "cdnify-grunt": "^0.0.2",
