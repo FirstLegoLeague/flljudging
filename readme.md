@@ -10,7 +10,7 @@ The goal of the application is to support the judging process according the inte
 For more information on the requirements refer to the [documentation](/description.md) file.
 
 ## Development
-This application is made using [**Angularjs**](https://angularjs.org). Like the [*scoring*](https://github.com/firstlegoleague/fllscoring) it is the ambition to support a wide range of configurations.
+This application is made using [__Angularjs__](https://angularjs.org). Like the [*scoring*](https://github.com/firstlegoleague/fllscoring) it is the ambition to support a wide range of configurations.
 
 #### Installation for development
 The easiest way to install this application is using [NodeJS](https://nodejs.org) and clone this repository. Then use `npm install --save-dev` to install the dependencies. See the [wiki/code](https://github.com/firstlegoleague/flljudging/wiki/code) for the list of packages this project uses.
@@ -18,7 +18,7 @@ The easiest way to install this application is using [NodeJS](https://nodejs.org
 Use `npm start` to start serving the application. Go to *http://localhost:1391* in your web browser to see the application work. You can use the `-p <port>` option to set an preferred port instead of the standard port *1391*.
 
 #### Contribution
-We appreciate contribution and feedback. If you want to contribute please fork this repository and make a pull-request. Read the [issues](https://github.com/firstlegoleague/flljudging/issues) and the [wiki](https://github.com/firstlegoleague/flljudging/wiki) to see what we are working on and where we need help.
+We appreciate contribution and feedback. If you want to contribute please fork this repository and make a pull-request. Read the [issues](https://github.com/firstlegoleague/flljudging/issues) and the [wiki](https://github.com/firstlegoleague/flljudging/wiki) to see what we are working on and where we need help. Within the code we use `TODO [type]`-comments to mark which parts in the files needs adjustments. The __type-part__ of such a *todo*-comment contains one of the [labels](https://github.com/FirstLegoLeague/flljudging/labels) used for the issues. Not all *todo*-comments have to be assigned to issues.
 
 ## Project
 We try to keep the application modular since it has a lot of different functionalities. The overview of modules can be find on the [wiki](https://github.com/firstlegoleague/flljudging/wiki).
